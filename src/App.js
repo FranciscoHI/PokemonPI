@@ -1,14 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Rutas from "./routes/Rutas";
 
 function App() {
-  return (
-    <div className="App">
-
-
-      </div>
-      
-  );
+  return <Rutas />;
 }
 
 export default App;
