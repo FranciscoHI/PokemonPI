@@ -1,4 +1,4 @@
-import React, {useEffect } from 'react'
+import React, {useEffect,useState } from 'react'
 import CardPersonaje from "../Card/CardPersonaje";
 import {getAll} from '../../redux/actions/index';
 import { useSelector, useDispatch } from "react-redux";
@@ -10,23 +10,46 @@ export default function Personajes() {
 
     const personajes = useSelector((state) => state.personajes);
 
+    const [buscar, setBuscar] = useState(""); // filtro ""
+    const [filtrar, setFiltrar] = useState([]); // []
+
+    const handleInput = (e) => {
+      setBuscar(e.target.value);
+    };
+
     //Ciclo de vida
     
     useEffect(() => {
         dispatch(getAll());
     }, [dispatch]);
 
-
+    useEffect(() => {
+      if (personajes.length > 0) {
+        setFiltrar(personajes.filter((p) => p?.name?.includes(buscar)));
+      }
+    }, [buscar, personajes]);
     return (
     <>
-         <TitleStyled>
-          <h1>The Rick and Morty</h1>
-          </TitleStyled>
-                   
+
+        <h1>The Rick and Morty</h1>
+        <LabelStyled htmlFor="buscar">Buscar: </LabelStyled>
+      <InputStyled
+        id="buscar"
+        name="buscar"
+        type="search"
+        placeholder="Buscar personaje..."
+        onChange={handleInput}
+      />
+
+                       
           <ContenedorStyled>
-         {personajes.length > 0 &&
+         {filtrar.length > 0
+         ? filtrar.map((p) => (
+          <CardPersonaje key={crypto.randomUUID} {...p} onClose={()=> alert(p.name)} />
+          ))            
+         : personajes.length > 0 &&
          personajes.map((p) => (
-           <CardPersonaje key={crypto.randomUUID} {...p} />               
+           <CardPersonaje key={crypto.randomUUID} {...p} onClose={()=> alert(p.name)} />               
                ))
             } 
             </ContenedorStyled>
@@ -43,10 +66,31 @@ export default function Personajes() {
    justify-content: center;
    align-content: center;
    background-color: OldLace;
+   margin-top: 0px;
    `;    
 
 
-  const TitleStyled = styled.h1`
-  text-align:center;    
-  background-color: OldLace;
-  `
+
+ 
+ const LabelStyled = styled.label`
+  margin-right: 1rem;
+  color: #992b2b;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  margin-left: 1rem;
+  
+  
+  
+`;
+
+const InputStyled = styled.input`
+  width: 400px;
+  height: 30px;  
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #992b2b;
+  font-size:1rem
+ background-color: #c28411;
+  `;
+  

@@ -2,15 +2,17 @@ import React from "react";
 import styled from "styled-components"
 
 
-export default function CardPersonaje({ id, name,species,status, image}) {
+export default function CardPersonaje({ id, name,species,status, image,onClose}) {
 
     return(
-        <CardStyled>
-         <TitleStyled>    
+        <CardStyled>       
+        <ImageStyled src={image} alt={name}></ImageStyled>
+        <TitleStyled> 
+        <button onClick={onClose}> X </button>       
         {id}: {name}
        </TitleStyled>
-        <ImageStyled src={image} alt={name}></ImageStyled>
         </CardStyled>
+
     )
 }
 

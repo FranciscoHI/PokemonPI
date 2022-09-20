@@ -1,9 +1,16 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Rutas from "./routes/Rutas";
+import Footer from "./components/Footer/Footer";
 
 function App() {
-  return <Rutas />;
+  return (
+    <div className="App">
+      <Rutas />
+      <Footer/>
+    </div>
+  );
+  
+ 
 }
 
 export default App;
