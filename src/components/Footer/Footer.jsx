@@ -15,8 +15,8 @@ export default Footer
 const FooterStyled = styled.footer`
     background-color: #e6576e;
     padding:40px;
-    //border-radius: 2em 2em 0 0;
-    
+    margin-top: 25px;
+    border-radius: 2em 2em 0 0;  
     text-align: left;
     color: #fff;
     text-shadow: black 0.1em 0.1em 0.1em;

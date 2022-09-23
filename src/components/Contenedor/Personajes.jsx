@@ -13,6 +13,8 @@ export default function Personajes() {
     const [buscar, setBuscar] = useState(""); // filtro ""
     const [filtrar, setFiltrar] = useState([]); // []
 
+  
+
     const handleInput = (e) => {
       setBuscar(e.target.value);
     };
@@ -34,6 +36,7 @@ export default function Personajes() {
         <h1>The Rick and Morty</h1>
         <LabelStyled htmlFor="buscar">Buscar: </LabelStyled>
       <InputStyled
+       
         id="buscar"
         name="buscar"
         type="search"
@@ -64,7 +67,7 @@ export default function Personajes() {
    flex-wrap: wrap;
    align-items: center;
    justify-content: center;
-   align-content: center;
+   align-content: center;  
    background-color: OldLace;
    margin-top: 0px;
    `;    
@@ -89,8 +92,10 @@ const InputStyled = styled.input`
   height: 30px;  
   margin-bottom: 1rem;
   border-radius: 5px;
-  border: 1px solid #992b2b;
-  font-size:1rem
- background-color: #c28411;
+  border: 2px solid #e6576e;
+  outline: none;
+  font-size:13px;
+ background-color: #f8d99f;
+ 
   `;
   

@@ -1,19 +1,25 @@
-import { GET_ALL_CHARACTER } from "../actions/index.js";
+import { GET_ALL_CHARACTER, GET_CHARACTER_ID } from "../actions/index.js";
 
 const initialState = {
   personajes: [],
- 
+  personaje: {},
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_ALL_CHARACTER: 
+    case GET_ALL_CHARACTER:
       return {
         ...state,
         personajes: action.payload,
       };
 
-        default:
+    case GET_CHARACTER_ID:
+      return {
+        ...state,
+        personaje: action.payload,
+      };
+
+    default:
       return state;
   }
 };

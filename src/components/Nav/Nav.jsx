@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 
+
 export default function Nav() {
   return (
    
@@ -11,15 +12,13 @@ export default function Nav() {
     {/* <img src="logo192.png" alt="Logo"/> */}
       <ul> 
         <li>
-          <Link to="home">Home</Link>
+          <Link to={"/home"}>Home</Link>
         </li>
         <li>
-          <Link to="about">About</Link>
+          <Link to={"/about"}>About</Link>
         </li>
-        <li>
-          <Link to="details">Details</Link>
-        </li>
-      </ul>
+       
+     </ul>
     </nav>
     </NavStyled>
    
