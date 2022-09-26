@@ -48,11 +48,11 @@ export default function Personajes() {
           <ContenedorStyled>
          {filtrar.length > 0
          ? filtrar.map((p) => (
-          <CardPersonaje key={crypto.randomUUID} {...p} onClose={()=> alert(p.name)} />
+          <CardPersonaje key={p.id} {...p} onClose={()=> alert(p.name)} />
           ))            
          : personajes.length > 0 &&
          personajes.map((p) => (
-           <CardPersonaje key={crypto.randomUUID} {...p} onClose={()=> alert(p.name)} />               
+           <CardPersonaje key={p.id} {...p} onClose={()=> alert(p.name)} />               
                ))
             } 
             </ContenedorStyled>
@@ -69,7 +69,10 @@ export default function Personajes() {
    justify-content: center;
    align-content: center;  
    background-color: OldLace;
-   margin-top: 0px;
+   margin-top: 5px;
+   padding-top: 20px;
+    padding-bottom: 20px;
+      
    `;    
 
 

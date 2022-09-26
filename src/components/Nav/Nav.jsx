@@ -17,6 +17,7 @@ export default function Nav() {
         <li>
           <Link to={"/about"}>About</Link>
         </li>
+        
        
      </ul>
     </nav>
@@ -39,7 +40,7 @@ a {
 }
 
 a:hover {  
-  background-color:#467fe7;  
+  background-color:#e6576e;  
   border-radius: 3px;
   color:white;
   text-decoration:none;

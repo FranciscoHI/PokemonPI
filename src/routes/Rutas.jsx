@@ -13,9 +13,10 @@ export default function Rutas() {
   return (
     <>
         <Nav />
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route exact path= "/details/:id" component={Details} />
+        <Route path='/home' component={Home} />
+        <Route path="/about" component={About} />
+        <Route path='/details/:id'> <Details />
+        </Route>
     </>
   )
   };

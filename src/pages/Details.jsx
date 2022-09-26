@@ -5,20 +5,15 @@ import styled  from 'styled-components';
 import { useParams } from 'react-router-dom';
 
 
-
-
-
-
-
-const Details = () => {
-  const {id} = useParams();
+ const Details = () => {
+  const params = useParams();
   const dispatch = useDispatch();
   const personaje = useSelector((state) => state.personaje);  
   
   
   useEffect(() => {
-    dispatch(getCharacterId(id));
-    }, [dispatch,id]);
+    dispatch(getCharacterId((params.id)));
+    }, [dispatch, params.id]);
 
 
   return (
@@ -26,6 +21,7 @@ const Details = () => {
 <h3>Hola soy el Detalle!</h3>
 {personaje? (
 <div>
+
   <img src={personaje?.image} alt={personaje?.name} />
   <h5>Id: {personaje?.id}</h5>  
   <h5>Name: {personaje?.name}</h5>

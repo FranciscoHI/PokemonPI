@@ -1,17 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components"
 
 
-export default function CardPersonaje({ id, name,species,status, image,onClose}) {
+export default function CardPersonaje({ id, name,image,onClose}) {
 
     return(
+        <Link to={`/details/${id}`}> 
         <CardStyled>     
-        <ButtonStyled onClick={onClose}> X </ButtonStyled>   
+         <ButtonStyled onClick={onClose}> X </ButtonStyled>   
         <ImageStyled src={image} alt={name}></ImageStyled>
         <TitleStyled>               
-        {id}: {name}
-       </TitleStyled>
+        {id}: {name}  
+       </TitleStyled>       
         </CardStyled>
+        </Link>
+      
+        
 
     )
 }
@@ -24,8 +29,9 @@ width: 230px;
 margin:1rem;
 margin-left: 1rem;
 box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-border-radius:5px;
+border-radius:10px;
 padding: 8px;
+
 
 
 cursor: pointer;
